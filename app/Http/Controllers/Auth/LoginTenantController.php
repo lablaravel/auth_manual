@@ -18,8 +18,7 @@ class LoginTenantController extends Controller
     {
         $request->only('cpf','cellphone');  
         $userinformation = UserInformation::select(['cpf','user_id'])->get();       
-        $valor = $userinformation->where('cpf',$request->cpf)->pluck('user_id')->toArray();  
-         
+        $valor = $userinformation->where('cpf',$request->cpf)->pluck('user_id')->toArray();           
 
       
         if(Auth::loginUsingId($valor))
