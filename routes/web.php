@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginTenantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('auth.login');
+    
 });
+
+Route::prefix('/hotspot')->group( function () {
+    Route::get('/',[LoginTenantController::class,'view'])->name('login.view');
+    Route::post('/',[LoginTenantController::class,'store'])->name('login.store');
+});
+
