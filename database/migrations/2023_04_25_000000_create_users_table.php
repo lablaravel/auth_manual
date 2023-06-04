@@ -13,16 +13,22 @@ return new class extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->foreignUuid('tenant_id')->references('id')->on('tenants')->onDelete('cascade');
             $table->string('name');          
             $table->string('email')->unique();            
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('password');
-            $table->string('cellphone');
-            $table->string('cpf');
-            $table->string('cnpj');
+            $table->string('password');           
             $table->rememberToken();
-            $table->timestamps();
+            $table->datetimes();
+        });
+
+        Schema::create('users_information', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')
+            ->comment('ID do user na tabela user')
+            ->constrained('users')->onDelete('cascade')->onUpdate('cascade'); 
+            $table->string('cellphone');           
+            $table->string('cpf');           
+            $table->datetimes();
         });
     }
 
@@ -31,6 +37,8 @@ return new class extends Migration
      */
     public function down(): void
     {
+        Schema::dropIfExists('users_information');
         Schema::dropIfExists('users');
+       
     }
 };
