@@ -1,4 +1,4 @@
-<x-app-layout>    
+<x-app-layout-login>    
 <div class="h-screen font-sans login bg-cover">
     <div class="container mx-auto h-full flex flex-1 justify-center items-center">
         <div class="w-full max-w-lg">
@@ -33,5 +33,4 @@
         </div>
       </div>
     </div>
-</x-app-layout>
-   
+</x-app-layout-login>   
