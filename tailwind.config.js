@@ -1,31 +1,7 @@
-<<<<<<< HEAD
-const defaultTheme = require('tailwindcss/defaultTheme');
-
-/** @type {import('tailwindcss').Config} */
-module.exports = {
-    darkMode: 'class',
-    content: [
-        './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
-        './storage/framework/views/*.php',
-        './resources/views/**/*.blade.php',
-    ],
-
-    theme: {
-        extend: {
-            fontFamily: {
-                sans: ['Figtree', ...defaultTheme.fontFamily.sans],
-            },
-        },
-    },
-
-    plugins: [
-        require('@tailwindcss/forms'),
-        require("daisyui")],
-};
-=======
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
+    './vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php',
     "./resources/**/*.blade.php",
     "./resources/**/*.js",
     "./resources/**/*.vue",
@@ -34,7 +10,7 @@ module.exports = {
     extend: {},
   },
   // add daisyUI plugin
-  plugins: [require("daisyui")],
+  plugins: [require("daisyui"),],
 
   // daisyUI config (optional)
   daisyui: {
@@ -48,4 +24,3 @@ module.exports = {
     darkTheme: "dark",
   },
 }
->>>>>>> feature/install-tail-daisyUi
