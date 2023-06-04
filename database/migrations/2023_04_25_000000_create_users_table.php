@@ -18,16 +18,16 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');           
             $table->rememberToken();
-            $table->timestamps();
+            $table->datetimes();
         });
 
         Schema::create('users_information', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')
             ->comment('ID do user na tabela user')
-            ->constrained('users')->onDelete('cascade')->onUpdate('cascade');           
-            $table->string('cpf');
-            $table->string('cnpj'); 
+            ->constrained('users')->onDelete('cascade')->onUpdate('cascade'); 
+            $table->string('cellphone');           
+            $table->string('cpf');           
             $table->datetimes();
         });
     }
